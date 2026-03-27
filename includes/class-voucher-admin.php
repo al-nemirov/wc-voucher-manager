@@ -268,13 +268,13 @@ class WC_Voucher_Admin {
             'nonce'   => wp_create_nonce('wc_voucher_nonce'),
             'i18n'    => [
                 'creating'      => __('Creating...', 'wc-voucher-manager'),
-                'create_btn'    => __('Create vouchers', 'wc-voucher-manager'),
+                'create_btn'    => __('Create coupons', 'wc-voucher-manager'),
                 'count_error'   => __('Count must be between 1 and 1000', 'wc-voucher-manager'),
                 'amount_error'  => __('Please specify discount amount', 'wc-voucher-manager'),
                 'server_error'  => __('Server error', 'wc-voucher-manager'),
                 'no_connection' => __('No connection to server', 'wc-voucher-manager'),
-                'timeout'       => __('Timeout — try fewer vouchers', 'wc-voucher-manager'),
-                'created'       => __('Created %d vouchers!', 'wc-voucher-manager'),
+                'timeout'       => __('Timeout — try fewer coupons', 'wc-voucher-manager'),
+                'created'       => __('Created %d coupons!', 'wc-voucher-manager'),
                 'csv_done'      => __('CSV file downloaded', 'wc-voucher-manager'),
                 'copied'        => __('Codes copied to clipboard', 'wc-voucher-manager'),
                 'unknown_error' => __('Unknown error', 'wc-voucher-manager'),
@@ -358,7 +358,7 @@ class WC_Voucher_Admin {
         $msg = sanitize_text_field($_GET['msg'] ?? '');
         if (!$msg) return;
         $messages = [
-            'trashed'   => __('Voucher moved to trash.', 'wc-voucher-manager'),
+            'trashed'   => __('Coupon moved to trash.', 'wc-voucher-manager'),
             'bulk_done' => __('Action completed.', 'wc-voucher-manager'),
         ];
         if (!isset($messages[$msg])) return;
@@ -366,7 +366,7 @@ class WC_Voucher_Admin {
         $count = intval($_GET['count'] ?? 0);
         if ($msg === 'bulk_done' && $count > 0) {
             /* translators: %d: number of vouchers */
-            $text = sprintf(__('Processed vouchers: %d', 'wc-voucher-manager'), $count);
+            $text = sprintf(__('Processed coupons: %d', 'wc-voucher-manager'), $count);
         }
         printf('<div class="notice notice-success is-dismissible voucher-notice"><p>%s</p></div>', esc_html($text));
     }
@@ -402,7 +402,7 @@ class WC_Voucher_Admin {
         <div class="voucher-generate-form">
             <div class="voucher-form-header">
                 <h2><?php printf(esc_html__('Bulk create %s', 'wc-voucher-manager'), esc_html($plural_lc)); ?></h2>
-                <p class="voucher-form-desc"><?php esc_html_e('Create multiple vouchers with the same parameters. Unique codes are generated automatically.', 'wc-voucher-manager'); ?></p>
+                <p class="voucher-form-desc"><?php esc_html_e('Create multiple coupons with the same parameters. Unique codes are generated automatically.', 'wc-voucher-manager'); ?></p>
             </div>
             <div class="voucher-form-grid">
                 <div class="voucher-form-section">

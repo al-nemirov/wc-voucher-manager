@@ -22,8 +22,7 @@ class WC_Voucher_Settings {
 
     public static function get($key) {
         $opts = get_option(self::OPTION_KEY, []);
-        $val = $opts[$key] ?? (self::$defaults[$key] ?? '');
-        // Return default translatable values if empty
+        $val = $opts[$key] ?? '';
         if ($val === '') {
             return self::get_default($key);
         }
@@ -32,12 +31,12 @@ class WC_Voucher_Settings {
 
     public static function get_default($key) {
         $map = [
-            'name_singular'    => __('Voucher', 'wc-voucher-manager'),
-            'name_plural'      => __('Vouchers', 'wc-voucher-manager'),
-            'name_code_label'  => __('Voucher code', 'wc-voucher-manager'),
-            'name_apply_btn'   => __('Apply voucher', 'wc-voucher-manager'),
+            'name_singular'    => __('Coupon', 'wc-voucher-manager'),
+            'name_plural'      => __('Coupons', 'wc-voucher-manager'),
+            'name_code_label'  => __('Coupon code', 'wc-voucher-manager'),
+            'name_apply_btn'   => __('Apply coupon', 'wc-voucher-manager'),
             'frontend_message' => __('Happy shopping!', 'wc-voucher-manager'),
-            'thankyou_message' => __('Thank you for your purchase! You saved %s with a voucher. See you again!', 'wc-voucher-manager'),
+            'thankyou_message' => __('Thank you for your purchase! You saved %s with a coupon. See you again!', 'wc-voucher-manager'),
             'toast_enabled'    => 'yes',
             'confetti_enabled' => 'yes',
         ];
@@ -50,6 +49,14 @@ class WC_Voucher_Settings {
             $result[$key] = self::get_default($key);
         }
         return $result;
+    }
+
+    /**
+     * Check if user has set a custom name (different from WooCommerce defaults)
+     */
+    public static function has_custom_name() {
+        $opts = get_option(self::OPTION_KEY, []);
+        return !empty($opts['name_singular']) || !empty($opts['name_plural']);
     }
 
     public function register_settings() {
@@ -90,7 +97,7 @@ class WC_Voucher_Settings {
                 <div class="voucher-form-grid">
                     <div class="voucher-form-section">
                         <h3 class="voucher-section-title"><?php esc_html_e('Naming', 'wc-voucher-manager'); ?></h3>
-                        <p class="voucher-form-desc"><?php esc_html_e('Customize how vouchers are called throughout the site. Leave empty to use defaults.', 'wc-voucher-manager'); ?></p>
+                        <p class="voucher-form-desc"><?php esc_html_e('Customize how coupons are called throughout the site. Leave empty to use defaults.', 'wc-voucher-manager'); ?></p>
 
                         <div class="voucher-field">
                             <label for="vs_singular"><?php esc_html_e('Singular name', 'wc-voucher-manager'); ?></label>
@@ -98,10 +105,7 @@ class WC_Voucher_Settings {
                                 <input type="text" id="vs_singular" name="<?php echo self::OPTION_KEY; ?>[name_singular]"
                                        value="<?php echo esc_attr($opts['name_singular'] ?? ''); ?>"
                                        placeholder="<?php echo esc_attr($defaults['name_singular']); ?>" />
-                                <span class="voucher-field-hint"><?php
-                                    /* translators: %s: default value */
-                                    printf(esc_html__('Default: %s', 'wc-voucher-manager'), $defaults['name_singular']);
-                                ?></span>
+                                <span class="voucher-field-hint"><?php printf(esc_html__('Default: %s', 'wc-voucher-manager'), $defaults['name_singular']); ?></span>
                             </div>
                         </div>
 
@@ -144,7 +148,7 @@ class WC_Voucher_Settings {
                                 <input type="text" id="vs_frontend_msg" name="<?php echo self::OPTION_KEY; ?>[frontend_message]"
                                        value="<?php echo esc_attr($opts['frontend_message'] ?? ''); ?>"
                                        placeholder="<?php echo esc_attr($defaults['frontend_message']); ?>" />
-                                <span class="voucher-field-hint"><?php esc_html_e('Shown in the toast notification when voucher is applied', 'wc-voucher-manager'); ?></span>
+                                <span class="voucher-field-hint"><?php esc_html_e('Shown in the toast notification when coupon is applied', 'wc-voucher-manager'); ?></span>
                             </div>
                         </div>
 
@@ -154,10 +158,7 @@ class WC_Voucher_Settings {
                                 <input type="text" id="vs_thankyou_msg" name="<?php echo self::OPTION_KEY; ?>[thankyou_message]"
                                        value="<?php echo esc_attr($opts['thankyou_message'] ?? ''); ?>"
                                        placeholder="<?php echo esc_attr($defaults['thankyou_message']); ?>" />
-                                <span class="voucher-field-hint"><?php
-                                    /* translators: %s is a placeholder for the discount amount */
-                                    esc_html_e('Use %s for the discount amount', 'wc-voucher-manager');
-                                ?></span>
+                                <span class="voucher-field-hint"><?php esc_html_e('Use %s for the discount amount', 'wc-voucher-manager'); ?></span>
                             </div>
                         </div>
 
@@ -167,7 +168,7 @@ class WC_Voucher_Settings {
                             <label class="voucher-checkbox-label">
                                 <input type="checkbox" name="<?php echo self::OPTION_KEY; ?>[toast_enabled]" value="yes"
                                     <?php checked($opts['toast_enabled'] ?? 'yes', 'yes'); ?> />
-                                <span><?php esc_html_e('Show toast notification when voucher is applied', 'wc-voucher-manager'); ?></span>
+                                <span><?php esc_html_e('Show toast notification when coupon is applied', 'wc-voucher-manager'); ?></span>
                             </label>
                         </div>
 
