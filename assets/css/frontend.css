@@ -1,0 +1,296 @@
+/* ==========================================================================
+   WC Voucher Manager — Frontend Styles
+   Beautiful voucher notifications for cart, checkout, thank-you
+   ========================================================================== */
+
+/* --- Voucher Toast Notification --- */
+.voucher-toast {
+    position: fixed;
+    top: 30px;
+    right: 30px;
+    z-index: 999999;
+    max-width: 420px;
+    min-width: 300px;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15), 0 4px 12px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+    animation: voucher-toast-in 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+}
+
+.voucher-toast.voucher-toast-out {
+    animation: voucher-toast-out 0.4s ease-in forwards;
+}
+
+@keyframes voucher-toast-in {
+    0% { opacity: 0; transform: translateX(100px) scale(0.8); }
+    100% { opacity: 1; transform: translateX(0) scale(1); }
+}
+
+@keyframes voucher-toast-out {
+    0% { opacity: 1; transform: translateX(0) scale(1); }
+    100% { opacity: 0; transform: translateX(100px) scale(0.8); }
+}
+
+.voucher-toast-gradient {
+    height: 5px;
+    background: linear-gradient(90deg, #00c853, #64dd17, #aeea00);
+    animation: voucher-gradient-shift 3s ease infinite;
+    background-size: 200% 100%;
+}
+
+@keyframes voucher-gradient-shift {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+}
+
+.voucher-toast-body {
+    padding: 20px 24px;
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+}
+
+.voucher-toast-emoji {
+    font-size: 40px;
+    line-height: 1;
+    flex-shrink: 0;
+    animation: voucher-bounce 1s ease 0.3s;
+}
+
+@keyframes voucher-bounce {
+    0%, 100% { transform: scale(1); }
+    30% { transform: scale(1.3); }
+    50% { transform: scale(0.9); }
+    70% { transform: scale(1.1); }
+}
+
+.voucher-toast-content {
+    flex: 1;
+    min-width: 0;
+}
+
+.voucher-toast-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 4px;
+}
+
+.voucher-toast-code {
+    display: inline-block;
+    font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
+    color: #2e7d32;
+    padding: 4px 12px;
+    border-radius: 6px;
+    margin: 6px 0;
+}
+
+.voucher-toast-discount {
+    font-size: 22px;
+    font-weight: 800;
+    color: #00a32a;
+    margin: 4px 0;
+}
+
+.voucher-toast-message {
+    font-size: 14px;
+    color: #666;
+    margin-top: 4px;
+}
+
+.voucher-toast-close {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    width: 28px;
+    height: 28px;
+    border: none;
+    background: #f5f5f5;
+    border-radius: 50%;
+    font-size: 16px;
+    line-height: 28px;
+    text-align: center;
+    color: #999;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+}
+
+.voucher-toast-close:hover {
+    background: #e0e0e0;
+    color: #333;
+}
+
+/* --- Confetti particles --- */
+.voucher-confetti-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 999998;
+    overflow: hidden;
+}
+
+.voucher-confetti {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-radius: 2px;
+    animation: voucher-confetti-fall 3s ease-out forwards;
+}
+
+@keyframes voucher-confetti-fall {
+    0% { opacity: 1; transform: translateY(-20px) rotate(0deg); }
+    100% { opacity: 0; transform: translateY(100vh) rotate(720deg); }
+}
+
+/* --- WooCommerce notice override --- */
+.woocommerce-message {
+    border-top-color: #00a32a !important;
+}
+
+/* Style the voucher applied message */
+.woocommerce-message:has(strong) {
+    background: linear-gradient(135deg, #f0faf0 0%, #fff 100%);
+    border-left: 4px solid #00a32a;
+    border-top: none;
+    border-radius: 8px;
+    padding: 16px 20px;
+    font-size: 14px;
+    box-shadow: 0 2px 8px rgba(0, 163, 42, 0.08);
+}
+
+/* --- Thank You Page Banner --- */
+.voucher-thankyou-banner {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 24px 28px;
+    margin: 20px 0 30px;
+    background: linear-gradient(135deg, #f0faf0 0%, #e3f5e3 50%, #d4edda 100%);
+    border: 1px solid #b7dfb9;
+    border-radius: 16px;
+    box-shadow: 0 4px 16px rgba(0, 163, 42, 0.08);
+    animation: voucher-thankyou-in 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes voucher-thankyou-in {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+.voucher-thankyou-icon {
+    font-size: 48px;
+    flex-shrink: 0;
+    animation: voucher-bounce 1s ease 0.5s;
+}
+
+.voucher-thankyou-content {
+    flex: 1;
+}
+
+.voucher-thankyou-title {
+    font-size: 20px;
+    font-weight: 800;
+    color: #137333;
+    margin-bottom: 6px;
+}
+
+.voucher-thankyou-text {
+    font-size: 15px;
+    color: #2e7d32;
+    line-height: 1.5;
+    margin-bottom: 10px;
+}
+
+.voucher-thankyou-codes {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.voucher-thankyou-code {
+    display: inline-block;
+    font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    background: #fff;
+    color: #2e7d32;
+    padding: 6px 14px;
+    border-radius: 8px;
+    border: 1px solid #b7dfb9;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+}
+
+/* --- Voucher input styling on cart page --- */
+.woocommerce .coupon .input-text,
+.woocommerce-cart .coupon .input-text {
+    border-radius: 8px !important;
+    border: 2px solid #dcdcde !important;
+    padding: 10px 14px !important;
+    font-size: 14px !important;
+    letter-spacing: 1px !important;
+    text-transform: uppercase !important;
+    transition: border-color 0.2s, box-shadow 0.2s !important;
+}
+
+.woocommerce .coupon .input-text:focus,
+.woocommerce-cart .coupon .input-text:focus {
+    border-color: #00a32a !important;
+    box-shadow: 0 0 0 3px rgba(0, 163, 42, 0.12) !important;
+    outline: none !important;
+}
+
+.woocommerce .coupon .button,
+.woocommerce-cart .coupon .button {
+    border-radius: 8px !important;
+    background: #00a32a !important;
+    color: #fff !important;
+    border: none !important;
+    padding: 10px 20px !important;
+    font-weight: 600 !important;
+    transition: background 0.2s, transform 0.1s !important;
+}
+
+.woocommerce .coupon .button:hover,
+.woocommerce-cart .coupon .button:hover {
+    background: #008a20 !important;
+    transform: translateY(-1px) !important;
+}
+
+/* --- Responsive --- */
+@media screen and (max-width: 600px) {
+    .voucher-toast {
+        right: 10px;
+        left: 10px;
+        top: 10px;
+        max-width: none;
+        min-width: auto;
+    }
+
+    .voucher-thankyou-banner {
+        flex-direction: column;
+        text-align: center;
+        padding: 20px;
+    }
+
+    .voucher-thankyou-codes {
+        justify-content: center;
+    }
+
+    .voucher-toast-body {
+        padding: 16px;
+    }
+
+    .voucher-toast-discount {
+        font-size: 18px;
+    }
+}
