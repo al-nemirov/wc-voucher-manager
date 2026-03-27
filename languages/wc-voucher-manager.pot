@@ -1,0 +1,509 @@
+# Copyright (C) 2026 Alexander Nemirov
+# This file is distributed under the MIT license.
+msgid ""
+msgstr ""
+"Project-Id-Version: WC Voucher Manager 1.2.0\n"
+"Report-Msgid-Bugs-To: https://github.com/al-nemirov/wc-voucher-manager/issues\n"
+"POT-Creation-Date: 2026-03-27 10:00+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+
+#: wc-voucher-manager.php
+msgid "requires WooCommerce to be installed and activated."
+msgstr ""
+
+#: wc-voucher-manager.php
+msgid "Settings"
+msgstr ""
+
+#: includes/class-voucher-settings.php
+msgid "Voucher"
+msgstr ""
+
+#: includes/class-voucher-settings.php
+msgid "Vouchers"
+msgstr ""
+
+#: includes/class-voucher-settings.php
+msgid "Voucher code"
+msgstr ""
+
+#: includes/class-voucher-settings.php
+msgid "Apply voucher"
+msgstr ""
+
+#: includes/class-voucher-settings.php
+msgid "Happy shopping!"
+msgstr ""
+
+#: includes/class-voucher-settings.php
+msgid "Thank you for your purchase! You saved %s with a voucher. See you again!"
+msgstr ""
+
+#: includes/class-voucher-settings.php
+msgid "Settings saved."
+msgstr ""
+
+#: includes/class-voucher-settings.php
+msgid "Naming"
+msgstr ""
+
+#: includes/class-voucher-settings.php
+msgid "Customize how vouchers are called throughout the site. Leave empty to use defaults."
+msgstr ""
+
+#: includes/class-voucher-settings.php
+msgid "Singular name"
+msgstr ""
+
+#: includes/class-voucher-settings.php
+msgid "Plural name"
+msgstr ""
+
+#: includes/class-voucher-settings.php
+msgid "Code input label"
+msgstr ""
+
+#: includes/class-voucher-settings.php
+msgid "Placeholder text in the cart/checkout code input"
+msgstr ""
+
+#: includes/class-voucher-settings.php
+msgid "Apply button text"
+msgstr ""
+
+#: includes/class-voucher-settings.php
+msgid "Default: %s"
+msgstr ""
+
+#: includes/class-voucher-settings.php
+msgid "Frontend Messages"
+msgstr ""
+
+#: includes/class-voucher-settings.php
+msgid "Success message (toast)"
+msgstr ""
+
+#: includes/class-voucher-settings.php
+msgid "Shown in the toast notification when voucher is applied"
+msgstr ""
+
+#: includes/class-voucher-settings.php
+msgid "Thank you page message"
+msgstr ""
+
+#: includes/class-voucher-settings.php
+msgid "Use %s for the discount amount"
+msgstr ""
+
+#: includes/class-voucher-settings.php
+msgid "Effects"
+msgstr ""
+
+#: includes/class-voucher-settings.php
+msgid "Show toast notification when voucher is applied"
+msgstr ""
+
+#: includes/class-voucher-settings.php
+msgid "Show confetti animation"
+msgstr ""
+
+#: includes/class-voucher-settings.php
+msgid "Save Settings"
+msgstr ""
+
+#: includes/class-voucher-renamer.php
+msgid "%s has been applied"
+msgstr ""
+
+#: includes/class-voucher-renamer.php
+msgid "%s does not exist"
+msgstr ""
+
+#: includes/class-voucher-renamer.php
+msgid "Invalid %s"
+msgstr ""
+
+#: includes/class-voucher-renamer.php
+msgid "Add %s"
+msgstr ""
+
+#: includes/class-voucher-renamer.php
+msgid "Remove %s"
+msgstr ""
+
+#: includes/class-voucher-renamer.php
+msgid "Add new %s"
+msgstr ""
+
+#: includes/class-voucher-renamer.php
+msgid "Edit %s"
+msgstr ""
+
+#: includes/class-voucher-renamer.php
+msgid "New %s"
+msgstr ""
+
+#: includes/class-voucher-renamer.php
+msgid "View %s"
+msgstr ""
+
+#: includes/class-voucher-renamer.php
+msgid "Search %s"
+msgstr ""
+
+#: includes/class-voucher-renamer.php
+msgid "%s not found"
+msgstr ""
+
+#: includes/class-voucher-renamer.php
+msgid "No %s found in trash"
+msgstr ""
+
+#: includes/class-voucher-admin.php
+msgid "Discount type"
+msgstr ""
+
+#: includes/class-voucher-admin.php
+msgid "Amount"
+msgstr ""
+
+#: includes/class-voucher-admin.php
+msgid "Created"
+msgstr ""
+
+#: includes/class-voucher-admin.php
+msgid "Expires"
+msgstr ""
+
+#: includes/class-voucher-admin.php
+msgid "Status"
+msgstr ""
+
+#: includes/class-voucher-admin.php
+msgid "Usage"
+msgstr ""
+
+#: includes/class-voucher-admin.php
+msgid "Used by"
+msgstr ""
+
+#: includes/class-voucher-admin.php
+msgid "Used date"
+msgstr ""
+
+#: includes/class-voucher-admin.php
+msgid "Move to trash"
+msgstr ""
+
+#: includes/class-voucher-admin.php
+msgid "Deactivate"
+msgstr ""
+
+#: includes/class-voucher-admin.php
+msgid "Activate"
+msgstr ""
+
+#: includes/class-voucher-admin.php
+msgid "Edit"
+msgstr ""
+
+#: includes/class-voucher-admin.php
+msgid "Trash"
+msgstr ""
+
+#: includes/class-voucher-admin.php
+msgid "Percent"
+msgstr ""
+
+#: includes/class-voucher-admin.php
+msgid "Cart"
+msgstr ""
+
+#: includes/class-voucher-admin.php
+msgid "Product"
+msgstr ""
+
+#: includes/class-voucher-admin.php
+msgid "No expiry"
+msgstr ""
+
+#: includes/class-voucher-admin.php
+msgid "days"
+msgstr ""
+
+#: includes/class-voucher-admin.php
+msgid "Trashed"
+msgstr ""
+
+#: includes/class-voucher-admin.php
+msgid "Draft"
+msgstr ""
+
+#: includes/class-voucher-admin.php
+msgid "Expired"
+msgstr ""
+
+#: includes/class-voucher-admin.php
+msgid "Exhausted"
+msgstr ""
+
+#: includes/class-voucher-admin.php
+msgid "Used"
+msgstr ""
+
+#: includes/class-voucher-admin.php
+msgid "Active"
+msgstr ""
+
+#: includes/class-voucher-admin.php
+msgid "All statuses"
+msgstr ""
+
+#: includes/class-voucher-admin.php
+msgid "Unused"
+msgstr ""
+
+#: includes/class-voucher-admin.php
+msgid "Drafts"
+msgstr ""
+
+#: includes/class-voucher-admin.php
+msgid "Filter"
+msgstr ""
+
+#: includes/class-voucher-admin.php
+msgid "Create %s"
+msgstr ""
+
+#: includes/class-voucher-admin.php
+msgid "Manager"
+msgstr ""
+
+#: includes/class-voucher-admin.php
+msgid "All %s"
+msgstr ""
+
+#: includes/class-voucher-admin.php
+msgid "Bulk create"
+msgstr ""
+
+#: includes/class-voucher-admin.php
+msgid "Statistics"
+msgstr ""
+
+#: includes/class-voucher-admin.php
+msgid "Voucher moved to trash."
+msgstr ""
+
+#: includes/class-voucher-admin.php
+msgid "Action completed."
+msgstr ""
+
+#: includes/class-voucher-admin.php
+msgid "Processed vouchers: %d"
+msgstr ""
+
+#: includes/class-voucher-admin.php
+msgid "Search"
+msgstr ""
+
+#: includes/class-voucher-admin.php
+msgid "Export CSV"
+msgstr ""
+
+#: includes/class-voucher-admin.php
+msgid "Bulk create %s"
+msgstr ""
+
+#: includes/class-voucher-admin.php
+msgid "Create multiple vouchers with the same parameters. Unique codes are generated automatically."
+msgstr ""
+
+#: includes/class-voucher-admin.php
+msgid "Main parameters"
+msgstr ""
+
+#: includes/class-voucher-admin.php
+msgid "Quantity"
+msgstr ""
+
+#: includes/class-voucher-admin.php
+msgid "1 to 1000"
+msgstr ""
+
+#: includes/class-voucher-admin.php
+msgid "Code prefix"
+msgstr ""
+
+#: includes/class-voucher-admin.php
+msgid "Code length"
+msgstr ""
+
+#: includes/class-voucher-admin.php
+msgid "random part without prefix"
+msgstr ""
+
+#: includes/class-voucher-admin.php
+msgid "Percent (%)"
+msgstr ""
+
+#: includes/class-voucher-admin.php
+msgid "Fixed cart"
+msgstr ""
+
+#: includes/class-voucher-admin.php
+msgid "Fixed product"
+msgstr ""
+
+#: includes/class-voucher-admin.php
+msgid "Restrictions"
+msgstr ""
+
+#: includes/class-voucher-admin.php
+msgid "Expiry date"
+msgstr ""
+
+#: includes/class-voucher-admin.php
+msgid "empty = no expiry"
+msgstr ""
+
+#: includes/class-voucher-admin.php
+msgid "Usage limit"
+msgstr ""
+
+#: includes/class-voucher-admin.php
+msgid "0 = unlimited"
+msgstr ""
+
+#: includes/class-voucher-admin.php
+msgid "Min. order amount"
+msgstr ""
+
+#: includes/class-voucher-admin.php
+msgid "0 = no minimum"
+msgstr ""
+
+#: includes/class-voucher-admin.php
+msgid "Individual use only"
+msgstr ""
+
+#: includes/class-voucher-admin.php
+msgid "Free shipping"
+msgstr ""
+
+#: includes/class-voucher-admin.php
+msgid "Created:"
+msgstr ""
+
+#: includes/class-voucher-admin.php
+msgid "Done!"
+msgstr ""
+
+#: includes/class-voucher-admin.php
+msgid "Download CSV"
+msgstr ""
+
+#: includes/class-voucher-admin.php
+msgid "View list"
+msgstr ""
+
+#: includes/class-voucher-admin.php
+msgid "Copy"
+msgstr ""
+
+#: includes/class-voucher-admin.php
+msgid "Total"
+msgstr ""
+
+#: includes/class-voucher-admin.php
+msgid "Recent batches"
+msgstr ""
+
+#: includes/class-voucher-admin.php
+msgid "Batch"
+msgstr ""
+
+#: includes/class-voucher-admin.php
+msgid "Count"
+msgstr ""
+
+#: includes/class-voucher-admin.php
+msgid "Action"
+msgstr ""
+
+#: includes/class-voucher-admin.php
+msgid "Show"
+msgstr ""
+
+#: includes/class-voucher-admin.php (JS)
+msgid "Creating..."
+msgstr ""
+
+#: includes/class-voucher-admin.php (JS)
+msgid "Create vouchers"
+msgstr ""
+
+#: includes/class-voucher-admin.php (JS)
+msgid "Count must be between 1 and 1000"
+msgstr ""
+
+#: includes/class-voucher-admin.php (JS)
+msgid "Please specify discount amount"
+msgstr ""
+
+#: includes/class-voucher-admin.php (JS)
+msgid "Server error"
+msgstr ""
+
+#: includes/class-voucher-admin.php (JS)
+msgid "No connection to server"
+msgstr ""
+
+#: includes/class-voucher-admin.php (JS)
+msgid "Timeout — try fewer vouchers"
+msgstr ""
+
+#: includes/class-voucher-admin.php (JS)
+msgid "Created %d vouchers!"
+msgstr ""
+
+#: includes/class-voucher-admin.php (JS)
+msgid "CSV file downloaded"
+msgstr ""
+
+#: includes/class-voucher-admin.php (JS)
+msgid "Codes copied to clipboard"
+msgstr ""
+
+#: includes/class-voucher-admin.php (JS)
+msgid "Unknown error"
+msgstr ""
+
+#: includes/class-voucher-frontend.php
+msgid "%s applied!"
+msgstr ""
+
+#: includes/class-voucher-frontend.php
+msgid "%1$s <strong>%2$s</strong> applied! Your discount: <strong>%3$s</strong>. %4$s"
+msgstr ""
+
+#: includes/class-voucher-tracker.php
+msgid "Used %s"
+msgstr ""
+
+#: includes/class-voucher-tracker.php
+msgid "Order not found"
+msgstr ""
+
+#: includes/class-voucher-tracker.php
+msgid "No %s used"
+msgstr ""
+
+#: includes/class-voucher-tracker.php
+msgid "deleted"
+msgstr ""

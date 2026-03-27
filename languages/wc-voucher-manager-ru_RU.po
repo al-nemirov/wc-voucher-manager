@@ -1,0 +1,388 @@
+# Russian translation for WC Voucher Manager
+# Copyright (C) 2026 Alexander Nemirov
+# This file is distributed under the MIT license.
+msgid ""
+msgstr ""
+"Project-Id-Version: WC Voucher Manager 1.2.0\n"
+"Report-Msgid-Bugs-To: https://github.com/al-nemirov/wc-voucher-manager/issues\n"
+"POT-Creation-Date: 2026-03-27 10:00+0000\n"
+"PO-Revision-Date: 2026-03-27 10:00+0300\n"
+"Last-Translator: Alexander Nemirov <aleuphoria@gmail.com>\n"
+"Language-Team: Russian <ru@li.org>\n"
+"Language: ru_RU\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
+
+msgid "requires WooCommerce to be installed and activated."
+msgstr "требует установленный и активированный WooCommerce."
+
+msgid "Settings"
+msgstr "Настройки"
+
+msgid "Voucher"
+msgstr "Ваучер"
+
+msgid "Vouchers"
+msgstr "Ваучеры"
+
+msgid "Voucher code"
+msgstr "Код ваучера"
+
+msgid "Apply voucher"
+msgstr "Применить ваучер"
+
+msgid "Happy shopping!"
+msgstr "Приятных покупок!"
+
+msgid "Thank you for your purchase! You saved %s with a voucher. See you again!"
+msgstr "Спасибо за покупку! Вы сэкономили %s с ваучером. Ждём вас снова!"
+
+msgid "Settings saved."
+msgstr "Настройки сохранены."
+
+msgid "Naming"
+msgstr "Названия"
+
+msgid "Customize how vouchers are called throughout the site. Leave empty to use defaults."
+msgstr "Настройте как ваучеры называются по всему сайту. Оставьте пустым для значений по умолчанию."
+
+msgid "Singular name"
+msgstr "Ед. число"
+
+msgid "Plural name"
+msgstr "Мн. число"
+
+msgid "Code input label"
+msgstr "Подпись поля ввода кода"
+
+msgid "Placeholder text in the cart/checkout code input"
+msgstr "Текст-подсказка в поле ввода кода в корзине/чекауте"
+
+msgid "Apply button text"
+msgstr "Текст кнопки применения"
+
+msgid "Default: %s"
+msgstr "По умолчанию: %s"
+
+msgid "Frontend Messages"
+msgstr "Сообщения на сайте"
+
+msgid "Success message (toast)"
+msgstr "Сообщение успеха (toast)"
+
+msgid "Shown in the toast notification when voucher is applied"
+msgstr "Показывается в уведомлении при применении ваучера"
+
+msgid "Thank you page message"
+msgstr "Сообщение на странице «Спасибо»"
+
+msgid "Use %s for the discount amount"
+msgstr "Используйте %s для суммы скидки"
+
+msgid "Effects"
+msgstr "Эффекты"
+
+msgid "Show toast notification when voucher is applied"
+msgstr "Показывать уведомление при применении ваучера"
+
+msgid "Show confetti animation"
+msgstr "Показывать анимацию конфетти"
+
+msgid "Save Settings"
+msgstr "Сохранить настройки"
+
+msgid "%s has been applied"
+msgstr "%s применён"
+
+msgid "%s does not exist"
+msgstr "%s не существует"
+
+msgid "Invalid %s"
+msgstr "Недействительный %s"
+
+msgid "Add %s"
+msgstr "Добавить %s"
+
+msgid "Remove %s"
+msgstr "Удалить %s"
+
+msgid "Add new %s"
+msgstr "Добавить новый %s"
+
+msgid "Edit %s"
+msgstr "Редактировать %s"
+
+msgid "New %s"
+msgstr "Новый %s"
+
+msgid "View %s"
+msgstr "Просмотреть %s"
+
+msgid "Search %s"
+msgstr "Найти %s"
+
+msgid "%s not found"
+msgstr "%s не найдены"
+
+msgid "No %s found in trash"
+msgstr "%s в корзине не найдено"
+
+msgid "Discount type"
+msgstr "Тип скидки"
+
+msgid "Amount"
+msgstr "Сумма"
+
+msgid "Created"
+msgstr "Создан"
+
+msgid "Expires"
+msgstr "Истекает"
+
+msgid "Status"
+msgstr "Статус"
+
+msgid "Usage"
+msgstr "Использований"
+
+msgid "Used by"
+msgstr "Использован кем"
+
+msgid "Used date"
+msgstr "Дата использования"
+
+msgid "Move to trash"
+msgstr "В корзину"
+
+msgid "Deactivate"
+msgstr "Деактивировать"
+
+msgid "Activate"
+msgstr "Активировать"
+
+msgid "Edit"
+msgstr "Редактировать"
+
+msgid "Trash"
+msgstr "В корзину"
+
+msgid "Percent"
+msgstr "Процент"
+
+msgid "Cart"
+msgstr "Корзина"
+
+msgid "Product"
+msgstr "Товар"
+
+msgid "No expiry"
+msgstr "Бессрочный"
+
+msgid "days"
+msgstr "дн."
+
+msgid "Trashed"
+msgstr "В корзине"
+
+msgid "Draft"
+msgstr "Черновик"
+
+msgid "Expired"
+msgstr "Истёк"
+
+msgid "Exhausted"
+msgstr "Исчерпан"
+
+msgid "Used"
+msgstr "Использован"
+
+msgid "Active"
+msgstr "Активен"
+
+msgid "All statuses"
+msgstr "Все статусы"
+
+msgid "Unused"
+msgstr "Неиспользованные"
+
+msgid "Drafts"
+msgstr "Черновики"
+
+msgid "Filter"
+msgstr "Фильтр"
+
+msgid "Create %s"
+msgstr "Создать %s"
+
+msgid "Manager"
+msgstr "Менеджер"
+
+msgid "All %s"
+msgstr "Все %s"
+
+msgid "Bulk create"
+msgstr "Массовое создание"
+
+msgid "Statistics"
+msgstr "Статистика"
+
+msgid "Voucher moved to trash."
+msgstr "Ваучер перемещён в корзину."
+
+msgid "Action completed."
+msgstr "Действие выполнено."
+
+msgid "Processed vouchers: %d"
+msgstr "Обработано ваучеров: %d"
+
+msgid "Search"
+msgstr "Найти"
+
+msgid "Export CSV"
+msgstr "Экспорт в CSV"
+
+msgid "Bulk create %s"
+msgstr "Массовое создание %s"
+
+msgid "Create multiple vouchers with the same parameters. Unique codes are generated automatically."
+msgstr "Создайте сразу несколько ваучеров с одинаковыми параметрами. Уникальные коды генерируются автоматически."
+
+msgid "Main parameters"
+msgstr "Основные параметры"
+
+msgid "Quantity"
+msgstr "Количество"
+
+msgid "1 to 1000"
+msgstr "от 1 до 1000"
+
+msgid "Code prefix"
+msgstr "Префикс кода"
+
+msgid "Code length"
+msgstr "Длина кода"
+
+msgid "random part without prefix"
+msgstr "случайная часть без префикса"
+
+msgid "Percent (%)"
+msgstr "Процент (%)"
+
+msgid "Fixed cart"
+msgstr "Фикс. на корзину"
+
+msgid "Fixed product"
+msgstr "Фикс. на товар"
+
+msgid "Restrictions"
+msgstr "Ограничения"
+
+msgid "Expiry date"
+msgstr "Дата истечения"
+
+msgid "empty = no expiry"
+msgstr "пусто = бессрочные"
+
+msgid "Usage limit"
+msgstr "Лимит использований"
+
+msgid "0 = unlimited"
+msgstr "0 = без лимита"
+
+msgid "Min. order amount"
+msgstr "Мин. сумма заказа"
+
+msgid "0 = no minimum"
+msgstr "0 = без ограничений"
+
+msgid "Individual use only"
+msgstr "Индивидуальное использование"
+
+msgid "Free shipping"
+msgstr "Бесплатная доставка"
+
+msgid "Created:"
+msgstr "Создано:"
+
+msgid "Done!"
+msgstr "Готово!"
+
+msgid "Download CSV"
+msgstr "Скачать CSV"
+
+msgid "View list"
+msgstr "Перейти к списку"
+
+msgid "Copy"
+msgstr "Скопировать"
+
+msgid "Total"
+msgstr "Всего"
+
+msgid "Recent batches"
+msgstr "Последние партии"
+
+msgid "Batch"
+msgstr "Партия"
+
+msgid "Count"
+msgstr "Кол-во"
+
+msgid "Action"
+msgstr "Действие"
+
+msgid "Show"
+msgstr "Показать"
+
+msgid "Creating..."
+msgstr "Создание..."
+
+msgid "Create vouchers"
+msgstr "Создать ваучеры"
+
+msgid "Count must be between 1 and 1000"
+msgstr "Количество должно быть от 1 до 1000"
+
+msgid "Please specify discount amount"
+msgstr "Укажите сумму скидки"
+
+msgid "Server error"
+msgstr "Ошибка сервера"
+
+msgid "No connection to server"
+msgstr "Нет связи с сервером"
+
+msgid "Timeout — try fewer vouchers"
+msgstr "Таймаут — попробуйте меньше ваучеров"
+
+msgid "Created %d vouchers!"
+msgstr "Создано %d ваучеров!"
+
+msgid "CSV file downloaded"
+msgstr "CSV файл скачан"
+
+msgid "Codes copied to clipboard"
+msgstr "Коды скопированы в буфер обмена"
+
+msgid "Unknown error"
+msgstr "Неизвестная ошибка"
+
+msgid "%s applied!"
+msgstr "%s применён!"
+
+msgid "%1$s <strong>%2$s</strong> applied! Your discount: <strong>%3$s</strong>. %4$s"
+msgstr "%1$s <strong>%2$s</strong> применён! Ваша скидка: <strong>%3$s</strong>. %4$s"
+
+msgid "Used %s"
+msgstr "Использованные %s"
+
+msgid "Order not found"
+msgstr "Заказ не найден"
+
+msgid "No %s used"
+msgstr "%s не использованы"
+
+msgid "deleted"
+msgstr "удалён"
