@@ -182,7 +182,7 @@ class WC_Voucher_Generator {
             $expires = $coupon->get_date_expires();
 
             $status = 'Активен';
-            if ($expires && $expires->getTimestamp() <= current_time('timestamp')) {
+            if ($expires && $expires->getTimestamp() <= time()) {
                 $status = 'Истёк';
             } elseif ($usage_limit > 0 && $usage_count >= $usage_limit) {
                 $status = 'Исчерпан';

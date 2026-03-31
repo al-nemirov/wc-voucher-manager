@@ -77,14 +77,14 @@ class WC_Voucher_List_Table extends WP_List_Table {
             $args['post_status'] = 'publish';
             $args['meta_query'] = [
                 'relation' => 'OR',
-                ['key' => 'date_expires', 'value' => current_time('timestamp'), 'compare' => '>', 'type' => 'NUMERIC'],
+                ['key' => 'date_expires', 'value' => time(), 'compare' => '>', 'type' => 'NUMERIC'],
                 ['key' => 'date_expires', 'compare' => 'NOT EXISTS'],
                 ['key' => 'date_expires', 'value' => '', 'compare' => '='],
             ];
         } elseif ($status_filter === 'expired') {
             $args['post_status'] = 'publish';
             $args['meta_query'] = [
-                ['key' => 'date_expires', 'value' => current_time('timestamp'), 'compare' => '<=', 'type' => 'NUMERIC'],
+                ['key' => 'date_expires', 'value' => time(), 'compare' => '<=', 'type' => 'NUMERIC'],
                 ['key' => 'date_expires', 'value' => '0', 'compare' => '>', 'type' => 'NUMERIC'],
             ];
         } elseif ($status_filter === 'used') {
@@ -154,7 +154,7 @@ class WC_Voucher_List_Table extends WP_List_Table {
         if (!$expires) return '<span class="voucher-badge-infinity" title="' . esc_attr__('No expiry', 'wc-voucher-manager') . '">&infin;</span>';
 
         $ts = intval($expires);
-        $now = current_time('timestamp');
+        $now = time();
         $date = wp_date('d.m.Y', $ts);
         $time = wp_date('H:i', $ts);
 
@@ -173,7 +173,7 @@ class WC_Voucher_List_Table extends WP_List_Table {
 
         if ($item->post_status === 'trash') return '<span class="voucher-status voucher-status-trash"><span class="voucher-status-dot"></span>' . __('Trashed', 'wc-voucher-manager') . '</span>';
         if ($item->post_status === 'draft') return '<span class="voucher-status voucher-status-draft"><span class="voucher-status-dot"></span>' . __('Draft', 'wc-voucher-manager') . '</span>';
-        if ($expires && intval($expires) > 0 && intval($expires) <= current_time('timestamp')) return '<span class="voucher-status voucher-status-expired"><span class="voucher-status-dot"></span>' . __('Expired', 'wc-voucher-manager') . '</span>';
+        if ($expires && intval($expires) > 0 && intval($expires) <= time()) return '<span class="voucher-status voucher-status-expired"><span class="voucher-status-dot"></span>' . __('Expired', 'wc-voucher-manager') . '</span>';
         if ($usage_limit > 0 && $usage_count >= $usage_limit) return '<span class="voucher-status voucher-status-exhausted"><span class="voucher-status-dot"></span>' . __('Exhausted', 'wc-voucher-manager') . '</span>';
         if ($usage_count > 0) return '<span class="voucher-status voucher-status-partial"><span class="voucher-status-dot"></span>' . __('Used', 'wc-voucher-manager') . '</span>';
         return '<span class="voucher-status voucher-status-active"><span class="voucher-status-dot"></span>' . __('Active', 'wc-voucher-manager') . '</span>';
@@ -501,7 +501,7 @@ class WC_Voucher_Admin {
         global $wpdb;
         $total = (int) $wpdb->get_var("SELECT COUNT(*) FROM {$wpdb->posts} WHERE post_type = 'shop_coupon' AND post_status IN ('publish','draft')");
         $used = (int) $wpdb->get_var("SELECT COUNT(*) FROM {$wpdb->posts} p INNER JOIN {$wpdb->postmeta} pm ON p.ID = pm.post_id AND pm.meta_key = 'usage_count' WHERE p.post_type = 'shop_coupon' AND p.post_status IN ('publish','draft') AND CAST(pm.meta_value AS UNSIGNED) > 0");
-        $now = current_time('timestamp');
+        $now = time();
         $expired = (int) $wpdb->get_var($wpdb->prepare("SELECT COUNT(*) FROM {$wpdb->posts} p INNER JOIN {$wpdb->postmeta} pm ON p.ID = pm.post_id AND pm.meta_key = 'date_expires' WHERE p.post_type = 'shop_coupon' AND p.post_status IN ('publish','draft') AND CAST(pm.meta_value AS UNSIGNED) > 0 AND CAST(pm.meta_value AS UNSIGNED) <= %d", $now));
         $active = max(0, $total - $expired);
 
