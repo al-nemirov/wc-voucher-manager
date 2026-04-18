@@ -81,12 +81,18 @@ class WC_Voucher_Settings {
         $opts = get_option(self::OPTION_KEY, []);
         $defaults = self::get_all_defaults();
 
-        if (isset($_POST['wc_voucher_settings_nonce']) && wp_verify_nonce($_POST['wc_voucher_settings_nonce'], 'wc_voucher_save_settings')) {
-            $instance = new self();
-            $clean = $instance->sanitize_settings($_POST[self::OPTION_KEY] ?? []);
-            update_option(self::OPTION_KEY, $clean);
-            $opts = $clean;
-            echo '<div class="notice notice-success is-dismissible"><p>' . esc_html__('Settings saved.', 'wc-voucher-manager') . '</p></div>';
+        if (isset($_POST['wc_voucher_settings_nonce'])) {
+            $nonce = sanitize_text_field(wp_unslash($_POST['wc_voucher_settings_nonce']));
+            if (wp_verify_nonce($nonce, 'wc_voucher_save_settings') && current_user_can('manage_woocommerce')) {
+                $instance = new self();
+                $raw = isset($_POST[self::OPTION_KEY]) && is_array($_POST[self::OPTION_KEY])
+                    ? wp_unslash($_POST[self::OPTION_KEY])
+                    : [];
+                $clean = $instance->sanitize_settings($raw);
+                update_option(self::OPTION_KEY, $clean);
+                $opts = $clean;
+                echo '<div class="notice notice-success is-dismissible"><p>' . esc_html__('Settings saved.', 'wc-voucher-manager') . '</p></div>';
+            }
         }
 
         ?>
@@ -102,27 +108,27 @@ class WC_Voucher_Settings {
                         <div class="voucher-field">
                             <label for="vs_singular"><?php esc_html_e('Singular name', 'wc-voucher-manager'); ?></label>
                             <div class="voucher-field-input">
-                                <input type="text" id="vs_singular" name="<?php echo self::OPTION_KEY; ?>[name_singular]"
+                                <input type="text" id="vs_singular" name="<?php echo esc_attr(self::OPTION_KEY); ?>[name_singular]"
                                        value="<?php echo esc_attr($opts['name_singular'] ?? ''); ?>"
                                        placeholder="<?php echo esc_attr($defaults['name_singular']); ?>" />
-                                <span class="voucher-field-hint"><?php printf(esc_html__('Default: %s', 'wc-voucher-manager'), $defaults['name_singular']); ?></span>
+                                <span class="voucher-field-hint"><?php printf(esc_html__('Default: %s', 'wc-voucher-manager'), esc_html($defaults['name_singular'])); ?></span>
                             </div>
                         </div>
 
                         <div class="voucher-field">
                             <label for="vs_plural"><?php esc_html_e('Plural name', 'wc-voucher-manager'); ?></label>
                             <div class="voucher-field-input">
-                                <input type="text" id="vs_plural" name="<?php echo self::OPTION_KEY; ?>[name_plural]"
+                                <input type="text" id="vs_plural" name="<?php echo esc_attr(self::OPTION_KEY); ?>[name_plural]"
                                        value="<?php echo esc_attr($opts['name_plural'] ?? ''); ?>"
                                        placeholder="<?php echo esc_attr($defaults['name_plural']); ?>" />
-                                <span class="voucher-field-hint"><?php printf(esc_html__('Default: %s', 'wc-voucher-manager'), $defaults['name_plural']); ?></span>
+                                <span class="voucher-field-hint"><?php printf(esc_html__('Default: %s', 'wc-voucher-manager'), esc_html($defaults['name_plural'])); ?></span>
                             </div>
                         </div>
 
                         <div class="voucher-field">
                             <label for="vs_code_label"><?php esc_html_e('Code input label', 'wc-voucher-manager'); ?></label>
                             <div class="voucher-field-input">
-                                <input type="text" id="vs_code_label" name="<?php echo self::OPTION_KEY; ?>[name_code_label]"
+                                <input type="text" id="vs_code_label" name="<?php echo esc_attr(self::OPTION_KEY); ?>[name_code_label]"
                                        value="<?php echo esc_attr($opts['name_code_label'] ?? ''); ?>"
                                        placeholder="<?php echo esc_attr($defaults['name_code_label']); ?>" />
                                 <span class="voucher-field-hint"><?php esc_html_e('Placeholder text in the cart/checkout code input', 'wc-voucher-manager'); ?></span>
@@ -132,7 +138,7 @@ class WC_Voucher_Settings {
                         <div class="voucher-field">
                             <label for="vs_apply_btn"><?php esc_html_e('Apply button text', 'wc-voucher-manager'); ?></label>
                             <div class="voucher-field-input">
-                                <input type="text" id="vs_apply_btn" name="<?php echo self::OPTION_KEY; ?>[name_apply_btn]"
+                                <input type="text" id="vs_apply_btn" name="<?php echo esc_attr(self::OPTION_KEY); ?>[name_apply_btn]"
                                        value="<?php echo esc_attr($opts['name_apply_btn'] ?? ''); ?>"
                                        placeholder="<?php echo esc_attr($defaults['name_apply_btn']); ?>" />
                             </div>
@@ -145,7 +151,7 @@ class WC_Voucher_Settings {
                         <div class="voucher-field">
                             <label for="vs_frontend_msg"><?php esc_html_e('Success message (toast)', 'wc-voucher-manager'); ?></label>
                             <div class="voucher-field-input">
-                                <input type="text" id="vs_frontend_msg" name="<?php echo self::OPTION_KEY; ?>[frontend_message]"
+                                <input type="text" id="vs_frontend_msg" name="<?php echo esc_attr(self::OPTION_KEY); ?>[frontend_message]"
                                        value="<?php echo esc_attr($opts['frontend_message'] ?? ''); ?>"
                                        placeholder="<?php echo esc_attr($defaults['frontend_message']); ?>" />
                                 <span class="voucher-field-hint"><?php esc_html_e('Shown in the toast notification when coupon is applied', 'wc-voucher-manager'); ?></span>
@@ -155,7 +161,7 @@ class WC_Voucher_Settings {
                         <div class="voucher-field">
                             <label for="vs_thankyou_msg"><?php esc_html_e('Thank you page message', 'wc-voucher-manager'); ?></label>
                             <div class="voucher-field-input">
-                                <input type="text" id="vs_thankyou_msg" name="<?php echo self::OPTION_KEY; ?>[thankyou_message]"
+                                <input type="text" id="vs_thankyou_msg" name="<?php echo esc_attr(self::OPTION_KEY); ?>[thankyou_message]"
                                        value="<?php echo esc_attr($opts['thankyou_message'] ?? ''); ?>"
                                        placeholder="<?php echo esc_attr($defaults['thankyou_message']); ?>" />
                                 <span class="voucher-field-hint"><?php esc_html_e('Use %s for the discount amount', 'wc-voucher-manager'); ?></span>
@@ -166,7 +172,7 @@ class WC_Voucher_Settings {
 
                         <div class="voucher-field">
                             <label class="voucher-checkbox-label">
-                                <input type="checkbox" name="<?php echo self::OPTION_KEY; ?>[toast_enabled]" value="yes"
+                                <input type="checkbox" name="<?php echo esc_attr(self::OPTION_KEY); ?>[toast_enabled]" value="yes"
                                     <?php checked($opts['toast_enabled'] ?? 'yes', 'yes'); ?> />
                                 <span><?php esc_html_e('Show toast notification when coupon is applied', 'wc-voucher-manager'); ?></span>
                             </label>
@@ -174,7 +180,7 @@ class WC_Voucher_Settings {
 
                         <div class="voucher-field">
                             <label class="voucher-checkbox-label">
-                                <input type="checkbox" name="<?php echo self::OPTION_KEY; ?>[confetti_enabled]" value="yes"
+                                <input type="checkbox" name="<?php echo esc_attr(self::OPTION_KEY); ?>[confetti_enabled]" value="yes"
                                     <?php checked($opts['confetti_enabled'] ?? 'yes', 'yes'); ?> />
                                 <span><?php esc_html_e('Show confetti animation', 'wc-voucher-manager'); ?></span>
                             </label>

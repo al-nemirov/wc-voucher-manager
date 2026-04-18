@@ -509,10 +509,10 @@ class WC_Voucher_Admin {
         ?>
         <div class="voucher-stats">
             <div class="voucher-stats-grid">
-                <div class="voucher-stat-card"><div class="voucher-stat-icon">&#127915;</div><div class="voucher-stat-number"><?php echo $total; ?></div><div class="voucher-stat-label"><?php esc_html_e('Total', 'wc-voucher-manager'); ?></div></div>
-                <div class="voucher-stat-card voucher-stat-active"><div class="voucher-stat-icon">&#9989;</div><div class="voucher-stat-number"><?php echo $active; ?></div><div class="voucher-stat-label"><?php esc_html_e('Active', 'wc-voucher-manager'); ?></div></div>
-                <div class="voucher-stat-card voucher-stat-used"><div class="voucher-stat-icon">&#128178;</div><div class="voucher-stat-number"><?php echo $used; ?></div><div class="voucher-stat-label"><?php esc_html_e('Used', 'wc-voucher-manager'); ?></div></div>
-                <div class="voucher-stat-card voucher-stat-expired"><div class="voucher-stat-icon">&#9200;</div><div class="voucher-stat-number"><?php echo $expired; ?></div><div class="voucher-stat-label"><?php esc_html_e('Expired', 'wc-voucher-manager'); ?></div></div>
+                <div class="voucher-stat-card"><div class="voucher-stat-icon">&#127915;</div><div class="voucher-stat-number"><?php echo absint($total); ?></div><div class="voucher-stat-label"><?php esc_html_e('Total', 'wc-voucher-manager'); ?></div></div>
+                <div class="voucher-stat-card voucher-stat-active"><div class="voucher-stat-icon">&#9989;</div><div class="voucher-stat-number"><?php echo absint($active); ?></div><div class="voucher-stat-label"><?php esc_html_e('Active', 'wc-voucher-manager'); ?></div></div>
+                <div class="voucher-stat-card voucher-stat-used"><div class="voucher-stat-icon">&#128178;</div><div class="voucher-stat-number"><?php echo absint($used); ?></div><div class="voucher-stat-label"><?php esc_html_e('Used', 'wc-voucher-manager'); ?></div></div>
+                <div class="voucher-stat-card voucher-stat-expired"><div class="voucher-stat-icon">&#9200;</div><div class="voucher-stat-number"><?php echo absint($expired); ?></div><div class="voucher-stat-label"><?php esc_html_e('Expired', 'wc-voucher-manager'); ?></div></div>
             </div>
             <?php if (!empty($batches)) : ?>
             <div class="voucher-batches">

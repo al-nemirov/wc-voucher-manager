@@ -48,10 +48,23 @@ class WC_Voucher_Generator {
 
         $expiry_timestamp = 0;
         if ($expiry) {
-            $expiry_timestamp = strtotime($expiry);
-            if ($expiry_timestamp === false) {
+            // Parse datetime-local value (no TZ) using WordPress site timezone
+            try {
+                $tz = wp_timezone();
+                $dt = date_create_from_format('Y-m-d\TH:i', $expiry, $tz);
+                if (!$dt) {
+                    $dt = date_create_from_format('Y-m-d\TH:i:s', $expiry, $tz);
+                }
+                if ($dt) {
+                    $expiry_timestamp = $dt->getTimestamp();
+                } else {
+                    $parsed = strtotime($expiry);
+                    $expiry_timestamp = $parsed !== false ? $parsed : 0;
+                }
+            } catch (Exception $e) {
                 $expiry_timestamp = 0;
             }
+            if ($expiry_timestamp < 0) $expiry_timestamp = 0;
         }
 
         $created_codes = [];
@@ -78,7 +91,11 @@ class WC_Voucher_Generator {
                 $coupon->set_date_expires($expiry_timestamp);
             }
 
-            $coupon_id = $coupon->save();
+            try {
+                $coupon_id = $coupon->save();
+            } catch (Exception $e) {
+                $coupon_id = 0;
+            }
 
             if ($coupon_id) {
                 update_post_meta($coupon_id, '_voucher_batch_id', $batch_id);
@@ -152,8 +169,9 @@ class WC_Voucher_Generator {
         $coupons = get_posts($args);
 
         $filename = 'vouchers-' . wp_date('Y-m-d-His') . '.csv';
+        nocache_headers();
         header('Content-Type: text/csv; charset=utf-8');
-        header('Content-Disposition: attachment; filename=' . $filename);
+        header('Content-Disposition: attachment; filename="' . $filename . '"');
         header('Pragma: no-cache');
         header('Expires: 0');
 

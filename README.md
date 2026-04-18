@@ -207,6 +207,29 @@ wc-voucher-manager/
 
 ---
 
+## Changelog
+
+### 1.3.0
+- **New**: Dashboard widget showing voucher stats (total / active / used / expired, 7-day usage) with 5-minute transient cache.
+- **New**: WP-CLI commands `wp voucher generate` and `wp voucher stats`.
+- **Fix**: Expiry date from the bulk-generate form is now parsed in the WordPress site timezone instead of the server timezone.
+- **Fix**: Settings form now verifies `manage_woocommerce` capability, unslashes nonce/input, and escapes option keys in form attributes.
+- **Fix**: CSV export emits quoted `Content-Disposition` filename and `nocache_headers()`.
+- **Fix**: Coupon save wrapped in try/catch — one bad record no longer aborts a batch.
+- **Fix**: Stats tab casts counts with `absint()` before output.
+- **Chore**: Plugin header version bumped (was stuck at 1.2.0 since the 1.2.1 release).
+- **Chore**: `.gitignore` added; build `.zip` no longer tracked.
+
+### 1.2.1
+- Fix duplicate menu; default naming set to Coupon / Купон.
+- Replace deprecated `current_time('timestamp')` with `time()`.
+
+### 1.2.0
+- Full i18n, settings page, language files.
+
+### 1.1.0
+- Initial public release.
+
 ## Author / Автор
 
 Alexander Nemirov

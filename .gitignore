@@ -1,0 +1,16 @@
+*.zip
+wc-voucher-manager.zip
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*~
+
+# PHP
+vendor/
+composer.lock

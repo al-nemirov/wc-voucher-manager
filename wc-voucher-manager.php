@@ -3,7 +3,7 @@
  * Plugin Name: WC Voucher Manager
  * Plugin URI: https://github.com/al-nemirov/wc-voucher-manager
  * Description: WooCommerce Voucher Manager — replaces coupons with vouchers. Bulk generation, usage tracking, beautiful UI, i18n ready.
- * Version: 1.2.0
+ * Version: 1.3.0
  * Author: Alexander Nemirov
  * Author URI: https://russ-project.ru
  * Text Domain: wc-voucher-manager
@@ -17,7 +17,7 @@
 
 if (!defined('ABSPATH')) exit;
 
-define('WC_VOUCHER_VERSION', '1.2.0');
+define('WC_VOUCHER_VERSION', '1.3.0');
 define('WC_VOUCHER_PATH', plugin_dir_path(__FILE__));
 define('WC_VOUCHER_URL', plugin_dir_url(__FILE__));
 define('WC_VOUCHER_BASENAME', plugin_basename(__FILE__));
@@ -70,6 +70,11 @@ class WC_Voucher_Manager {
         require_once WC_VOUCHER_PATH . 'includes/class-voucher-generator.php';
         require_once WC_VOUCHER_PATH . 'includes/class-voucher-tracker.php';
         require_once WC_VOUCHER_PATH . 'includes/class-voucher-frontend.php';
+        require_once WC_VOUCHER_PATH . 'includes/class-voucher-dashboard-widget.php';
+
+        if (defined('WP_CLI') && WP_CLI) {
+            require_once WC_VOUCHER_PATH . 'includes/class-voucher-cli.php';
+        }
     }
 
     private function init_classes() {
@@ -79,6 +84,7 @@ class WC_Voucher_Manager {
         new WC_Voucher_Generator();
         new WC_Voucher_Tracker();
         new WC_Voucher_Frontend();
+        new WC_Voucher_Dashboard_Widget();
     }
 
     public function plugin_action_links($links) {
